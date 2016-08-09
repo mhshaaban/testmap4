@@ -31,7 +31,7 @@ var projection = d3.geo.mercator()
     .translate([(width) / 2, (height)/2]);
 var path = d3.geo.path()
     .projection(projection);
-d3.json("map.topojson", function(error, features) {
+d3.json("map.json", function(error, features) {
     svg.append('g')
       .attr('class', 'features')
     .selectAll('path')
