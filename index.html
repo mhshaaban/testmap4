@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<style>
+
+</style>
+
+<header>
+<h2>Test Map</h2>	
+</header>
+
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+
+<body>
+
+<script>
+
+var width = 960,
+    height = 500;
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var projection = d3.geo.mercator()
+    .center([30.04,31.23])
+    .scale(600)
+    .translate([(width) / 2, (height)/2]);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+d3.json("map.topojson", function(error, features) {
+    svg.append('g')
+      .attr('class', 'features')
+    .selectAll('path')
+      .data(features.features)
+    .enter().append('path')
+      .attr('d', path);
+});
+</script>
+</body>
+</html>
