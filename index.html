@@ -51,7 +51,7 @@ var path = d3.geo.path()
 
 d3.json("map4.json", function(error, features) {
     svg.selectAll(".subunit")
-    .data(topojson.feature(map2, map2.objects.subunits).features)
+    .data(topojson.feature(map4, map4.objects.subunits).features)
   .enter().append("path")
     .attr("class", function(d) { return "subunit " + d.nm; })
     .attr("d", path);
