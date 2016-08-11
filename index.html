@@ -8,7 +8,7 @@
   height:500px;
 }
 
-.subunit.Mamluk { fill: #ddc; }
+.subunit.MAM { fill: #ddc; }
 
 
 </style>
@@ -45,7 +45,7 @@ d3.json("map4.json", function(error, map4) {
   svg.selectAll(".subunit")
       .data(topojson.feature(map4, map4.objects.subunits).features)
     .enter().append("path")
-      .attr("class", function(d) { return "subunit " + d.nm; })
+      .attr("class", function(d) { return "subunit " + d.id; })
       .attr("d", path);
 });
 
