@@ -1,12 +1,16 @@
-
 <!DOCTYPE html>
 <meta charset="utf-8">
 
 <style>
-#path {
-  stroke: grey;
-	stroke-width: 1px;
-	fill: steelblue;
+#map {
+  border:1px solid #999;
+  width:960px;
+  height:500px;
+}
+path {
+  fill: #e5e5e5;
+  stroke: #fff;
+  stroke-width:1px;
 }
 </style>
 
@@ -19,19 +23,26 @@
 
 <body>
 
+<div id="map"></div>
+
 <script>
+
 var width = 960,
     height = 500;
-var svg = d3.select("body").append("svg")
+
+var svg = d3.select("#map").append("svg")
     .attr("width", width)
     .attr("height", height);
+  
 var projection = d3.geo.mercator()
     .center([30.04,31.23])
     .scale(600)
     .translate([(width) / 2, (height)/2]);
+
 var path = d3.geo.path()
     .projection(projection);
-d3.json("map.json", function(error, features) {
+
+d3.json("testmap.json", function(error, features) {
     svg.append('g')
       .attr('class', 'features')
     .selectAll('path')
@@ -39,6 +50,7 @@ d3.json("map.json", function(error, features) {
     .enter().append('path')
       .attr('d', path);
 });
+
 </script>
 </body>
 </html>
