@@ -42,7 +42,7 @@ var projection = d3.geo.mercator()
 var path = d3.geo.path()
     .projection(projection);
 
-d3.json("testmap.json", function(error, features) {
+d3.json("map2.json", function(error, features) {
     svg.append('g')
       .attr('class', 'features')
     .selectAll('path')
