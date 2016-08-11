@@ -43,12 +43,11 @@ var path = d3.geo.path()
     .projection(projection);
 
 d3.json("map2.json", function(error, features) {
-    svg.append('g')
-      .attr('class', 'features')
-    .selectAll('path')
-      .data(features.features)
-    .enter().append('path')
-      .attr('d', path);
+    svg.selectAll(".subunit")
+    .data(topojson.feature(map2, map2.objects.subunits).features)
+  .enter().append("path")
+    .attr("class", function(d) { return "subunit " + d.nm; })
+    .attr("d", path);
 });
 
 </script>
