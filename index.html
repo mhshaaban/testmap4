@@ -57,11 +57,7 @@ d3.json("map4.json", function(error, map4) {
       .attr("class", function(d) { return "subunit " + d.id; })
       .attr("d", path);
 });
-d3.json("empiremap.json", function(error, empiremap) {
-  svg.append("path")
-      .datum(topojson.feature(empiremap, empiremap.objects.subunits))
-      .attr("d", path);
-});
+
 
 </script>
 </body>
